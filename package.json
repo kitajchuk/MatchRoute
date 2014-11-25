@@ -1,0 +1,32 @@
+{
+    "title": "MatchRoute",
+    "name": "properjs-matchroute",
+    "description": "Handles wildcard route matching against urls with !num and !slug condition testing.",
+    "version": "0.1.0",
+    "homepage": "https://github.com/ProperJS/MatchRoute",
+    "readmeFilename": "README.md",
+    "contributors": [
+        {
+            "name": "Brandon Kitajchuk",
+            "email": "kitajchuk@gmail.com",
+            "url": "http://blkpdx.com"
+        }
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/ProperJS/MatchRoute.git"
+    },
+    "bugs": {
+        "url": "https://github.com/ProperJS/MatchRoute/issues"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/ProperJS/MatchRoute/blob/master/LICENSE"
+        }
+    ],
+    "main": "MatchRoute",
+    "keywords": [
+        "routing"
+    ]
+}
