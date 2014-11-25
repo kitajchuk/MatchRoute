@@ -6,8 +6,10 @@ MatchRoute
 
 
 ## Installation
+MatchRoute will build with its dependencies to `dist` when installed with `npm`.
 
 ```shell
+# Dist located at node_modules/properjs-matchroute/dist/
 npm install properjs-matchroute
 ```
 
