@@ -2,7 +2,7 @@
     "title": "MatchRoute",
     "name": "properjs-matchroute",
     "description": "Handles wildcard route matching against urls with !num and !slug condition testing.",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "homepage": "https://github.com/ProperJS/MatchRoute",
     "readmeFilename": "README.md",
     "contributors": [
