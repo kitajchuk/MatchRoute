@@ -222,7 +222,7 @@ MatchRoute.prototype = {
             
             // If the actual url doesn't match the route in segment length,
             // it cannot possibly be considered for matching so just skip it
-            if ( ruris.length !== uris.length ) {
+            if ( ruris.length !== uris.length && routes[ i ] !== "*" ) {
                 continue;
             }
             
@@ -275,7 +275,8 @@ MatchRoute.prototype = {
                 }
             }
             
-            if ( segMatches === uris.length ) {
+            // Handle a uri segment match OR "*" wildcard everything
+            if ( segMatches === uris.length || routes[ i ] === "*" ) {
                 ret.matched = true;
                 ret.route = routes[ i ];
                 ret.uri = ret.uri.join( "/" );
