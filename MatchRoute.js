@@ -187,6 +187,7 @@ MatchRoute.prototype = {
      */
     parse: function ( url, routes ) {
         var segMatches,
+            isStar,
             params,
             match,
             route = this._cleanRoute( url ),
@@ -199,6 +200,9 @@ MatchRoute.prototype = {
             ret;
         
         for ( var i = 0; i < iLen; i++ ) {
+            // Flag "*" route
+            isStar = (routes[ i ] === "*");
+            
             // Start fresh each iteration
             // Only one matched route allowed
             ret = {
@@ -222,7 +226,7 @@ MatchRoute.prototype = {
             
             // If the actual url doesn't match the route in segment length,
             // it cannot possibly be considered for matching so just skip it
-            if ( ruris.length !== uris.length && routes[ i ] !== "*" ) {
+            if ( ruris.length !== uris.length && !isStar ) {
                 continue;
             }
             
@@ -276,10 +280,10 @@ MatchRoute.prototype = {
             }
             
             // Handle a uri segment match OR "*" wildcard everything
-            if ( segMatches === uris.length || routes[ i ] === "*" ) {
+            if ( segMatches === uris.length || isStar ) {
                 ret.matched = true;
                 ret.route = routes[ i ];
-                ret.uri = ret.uri.join( "/" );
+                ret.uri = ( isStar ) ? route : ret.uri.join( "/" );
                 
                 break;
             }

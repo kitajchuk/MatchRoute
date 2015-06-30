@@ -41,4 +41,7 @@ matchroute.params( url );
 
 // Set routes config
 matchroute.config( routes );
+
+// Wildcard any route that is non-external to your domain
+var matchroute = new MatchRoute( ["*"] );
 ```
