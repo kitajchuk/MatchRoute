@@ -6,26 +6,24 @@ MatchRoute
 
 
 ## Installation
-MatchRoute will build with its dependencies to `dist` when installed with `npm`.
-
 ```shell
-# Dist located at node_modules/properjs-matchroute/dist/
-npm install properjs-matchroute
+npm install properjs-matchroute --save-dev
 ```
 
 
 ## Usage
 ```javascript
-var matchroute = new MatchRoute([
-    // Known route
-    "some/route",
-    
-    // Unknown route
-    "another/:slug",
-    
-    // Unknown route, enforce Number on last uri
-    "also/:slug/:num!num"
-]);
+var MatchRoute = require( "properjs-matchroute" ),
+    matchroute = new MatchRoute([
+        // Known route
+        "some/route",
+        
+        // Unknown route
+        "another/:slug",
+        
+        // Unknown route, enforce Number on last uri
+        "also/:slug/:num!num"
+    ]);
 
 // Test url against routes
 matchroute.test( url );

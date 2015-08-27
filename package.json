@@ -2,7 +2,7 @@
     "title": "MatchRoute",
     "name": "properjs-matchroute",
     "description": "Handles wildcard route matching against urls with !num and !slug condition testing.",
-    "version": "0.1.6",
+    "version": "0.2.0",
     "homepage": "https://github.com/ProperJS/MatchRoute",
     "readmeFilename": "README.md",
     "contributors": [
@@ -27,17 +27,14 @@
     ],
     "main": "MatchRoute",
     "scripts": {
-        "prepublish": "properjs"
-    },
-    "properjs": {
-        "dependencies": ["paramalama"],
-        "output": "dist/MatchRoute.js"
+        "test": "webpack test/test.js test/dist/common.js ; cp MatchRoute.js test/dist/browser.js"
     },
     "dependencies": {
-        "paramalama": "~0.1"
+        "paramalama": "~0.2"
     },
     "keywords": [
         "properjs",
-        "routing"
+        "router",
+        "expression"
     ]
 }
