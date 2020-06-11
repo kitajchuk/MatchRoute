@@ -1,45 +1,47 @@
-MatchRoute
-==========
+ProperJS // MatchRoute
+======================
 
-> Handles wildcard route matching against urls with !num and !slug condition testing.
+> Wildcard route matching for urls with !num and !slug conditions.
 
 
 
-## Installation
+### Installation
 ```shell
 npm install properjs-matchroute --save-dev
 ```
 
 
-## Usage
+### Usage
+Alone this utility may not be that useful, which is why it's used with the [ProperJS/Router](https://github.com/ProperJS/Router).
 ```javascript
-var MatchRoute = require( "properjs-matchroute" ),
-    matchroute = new MatchRoute([
-        // Known route
-        "some/route",
-        
-        // Unknown route
-        "another/:slug",
-        
-        // Unknown route, enforce Number on last uri
-        "also/:slug/:num!num"
-    ]);
+import MatchRoute = from "properjs-matchroute";
+
+const routes = [
+    // Known route
+    "some/route",
+
+    // Unknown route
+    "another/:slug",
+
+    // Enforce Number on last URI segment
+    "also/:slug/:num!num"
+];
+
+const matcher = new MatchRoute( routes );
 
 // Test url against routes
-matchroute.test( url );
+console.log( "test", matcher.test( "http://localhost:9999/some/route" ) );
 
 // Compare a route against a url
-matchroute.compare( route, url );
+console.log( "compare", matcher.compare( "some/:slug", "http://localhost:9999/some/route" ) );
 
 // Parse a url against routes config
-matchroute.parse( url, routes );
+console.log( "parse", matcher.parse( "http://localhost:9999/some/route", routes ) );
 
 // Get params property from .parse()
-matchroute.params( url );
+console.log( "params", matcher.params( "http://localhost:9999/another/thing" ) );
 
-// Set routes config
-matchroute.config( routes );
-
+// Set routes config after initialization
 // Wildcard any route that is non-external to your domain
-var matchroute = new MatchRoute( ["*"] );
+matcher.config( ["*"] );
 ```
